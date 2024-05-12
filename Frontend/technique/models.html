@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model List</title>
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        input[type="text"], input[type="datetime-local"],
+        input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #555;
+        }
+
+        th {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Додати модель</h2>
+    <div>
+        <form id="model-form">
+            <input type="hidden" id="id" readonly>
+
+            <label for="name">Назва:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="desc">Опис:</label><br>
+            <input type="text" id="desc" name="desc" required><br>
+
+            <label for="status">Статус:</label><br>
+            <select id="status" name="status" required>
+                <option value="В наявності">В наявності</option>
+                <option value="Відсутній">Відсутній</option>
+            </select><br>
+
+            <label for="time">Час додавання:</label><br>
+            <input type="datetime-local" id="date_time" name="time" required><br>
+
+            <input type="submit" value="Додати">
+        </form>
+    </div>
+    <div style="margin-top: 20px;">
+        <h2>Видалити модель</h2>
+        <form id="model-form-delete">
+            <label for="id">ID:</label><br>
+            <input type="number" id="model_id" name="id" required><br>
+            <input type="submit" value="Видалити модель">
+        </form>
+    </div>
+    <div style="margin-top: 20px;">
+        <h2>Список моделей</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Назва</th>
+                <th>Опис</th>
+                <th>Статус</th>
+                <th>Час додавання</th>
+            </tr>
+            </thead>
+            <tbody id="models-list">
+            <!-- Сюди буде вставлено список завдань -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Підключення скрипта models.js -->
+<script src="technique/models.js"></script>
+</body>
+</html>
